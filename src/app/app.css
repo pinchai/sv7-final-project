@@ -1,0 +1,32 @@
+.image-slider {
+  height: 500px;
+  object-fit: cover;
+}
+
+.product-card {
+  border: none;
+  width: 100%;
+}
+
+.product-card-image {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.product-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Show 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

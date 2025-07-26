@@ -1,15 +1,24 @@
-import {Component, signal} from '@angular/core';
+import {Component, signal, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
+import {Navbar} from './navbar/navbar';
+import {TopSlider} from './top-slider/top-slider';
+import {Footer} from './footer/footer';
+import {ProductCard} from './product-card/product-card';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Navbar, TopSlider, Footer, ProductCard],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('SV7-Final-Project');
+  ngOnInit(){
+    let cart_list = localStorage.getItem('cart_list') ?? '[]'
+    this.cart_list = JSON.parse(cart_list)
+    console.log(this.cart_list)
+  }
 
+  cart_list:any[] = []
   products: any = [
     {
       "id": 1,
@@ -252,4 +261,12 @@ export class App {
       }
     }
   ];
+
+  addToCart(item:any){
+    this.cart_list.push(item);
+    localStorage.setItem('cart_list',JSON.stringify(this.cart_list));
+    console.log(this.cart_list);
+  }
+
+  //
 }

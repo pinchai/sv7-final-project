@@ -1,1 +1,23 @@
-<p>product-card works!</p>
+<div class="card shadow-sm product-card">
+  <span class="badge badge-primary position-absolute" style="top: 10px; left: 10px; z-index:1;">
+    {{ product.category }}
+  </span>
+  <img
+    class="card-img-top product-card-image"
+    [src]="product.image"
+    alt="Product Image"
+  >
+  <div class="card-body">
+    <h6 class="card-title mb-1 text-muted product-title">{{ product.title }}</h6>
+    <h5 class="card-title product-description">{{ product.description }}</h5>
+    <p class="mb-1">
+      <span class="text-danger h5 font-weight-bold mr-2">{{ product.price | currency }}</span>
+    </p>
+    <button
+      class="btn btn-sm btn-primary mt-2"
+      (click)="addToCart(product)"
+    >
+      Add to cart
+    </button>
+  </div>
+</div>

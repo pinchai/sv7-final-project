@@ -1,29 +1,57 @@
 <!--Navbar-->
-<div class="container-fluid p-0 m-0">
-  <app-navbar [cart_list]="cart_list"></app-navbar>
+<div
+  class="container-fluid p-0 m-0">
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-light"
+  >
+    <a class="navbar-brand" routerLink="/"> Mini Store</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Promotion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Support</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+        >
+      </div>
+      <a
+        routerLink="/cart"
+        class="btn btn-outline-success my-2 my-sm-0"
+      >
+        Cart({{ cartService.getCartList().length }})
+      </a>
+    </div>
+  </nav>
 </div>
 <!--body-->
 <div class="container">
-  <!--  top-slider-->
-  <div class="row">
-    <div class="col-12">
-      <app-top-slider></app-top-slider>
-    </div>
-  </div>
-  <!--  product-card-->
-  <div class="row">
-    @for (product of products; track product.id) {
-      <div class="col-lg-3  col-md-4 col-sm- 12 mt-3">
-        <app-product-card
-          [product]="product"
-          (addToCartEvent)="addToCart($event)"
-        ></app-product-card>
-      </div>
-    }
-  </div>
+  <router-outlet/>
 </div>
 <!--Footer-->
 <div class="container-fluid p-0 m-0">
   <app-footer></app-footer>
 </div>
-<router-outlet/>
+

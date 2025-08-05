@@ -1,0 +1,17 @@
+<!--  top-slider-->
+<!--  <div class="row">-->
+<!--    <div class="col-12">-->
+<!--      <app-top-slider></app-top-slider>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  product-card-->
+<div class="row">
+  @for (product of productService.getProducts(); track product.id) {
+    <div class="col-lg-3  col-md-4 col-sm- 12 mt-3">
+      <app-product-card
+        [product]="product"
+        (addToCartEvent)="addToCart($event)"
+      ></app-product-card>
+    </div>
+  }
+</div>

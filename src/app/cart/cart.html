@@ -18,9 +18,9 @@
               <tr>
                 <td>{{ i+1 }}</td>
                 <td>
-                  <img src="{{ cart.image }}" alt="Product Image" class="img-fluid">
+                  <img style="height: 50px; object-fit: contain" src="{{ cart.imageUrl }}" alt="Product Image" class="img-fluid">
                 </td>
-                <td>{{ cart.title }}</td>
+                <td>{{ cart.name }}</td>
                 <td>{{ cart.price | currency }}</td>
                 <td>{{ cart.qty | number }}</td>
                 <td>{{ (cart.qty *  cart.price) | currency}}</td>

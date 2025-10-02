@@ -4,6 +4,7 @@ declare const axios: any;
   providedIn: 'root'
 })
 export class ProductService {
+
   private products: any[] = [
     {
       "id": 1,
@@ -268,4 +269,5 @@ export class ProductService {
   getProducts() {
     return this.products;
   }
+
 }
